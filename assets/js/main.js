@@ -43,6 +43,8 @@ const partition4 = partitionTransfomer(
 
 const partition = partitionMerger(partition5, partition4)
 
+partitionPurgeSilence(partition)
+
 function partitionTransfomer(partition_str, octave) {
     const association_list = [
         ['4c', 523],
@@ -98,6 +100,14 @@ function partitionMerger(part_main, part_pull) {
     }
 
     return merged_partition
+}
+
+function partitionPurgeSilence(part) {
+    part.forEach((p, i) => {
+        if (p === 0) {
+            part.slice(i, 1)
+        }
+    })
 }
 
 function playNote(frequency) {
