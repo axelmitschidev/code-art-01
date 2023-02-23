@@ -1,4 +1,4 @@
-let population = 100
+let population = 1000
 let count = 0
 
 const count_element = document.getElementById('count')
